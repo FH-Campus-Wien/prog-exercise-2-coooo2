@@ -7,39 +7,45 @@ public class App {
     //todo Task 1
     public void largestNumber() {
 
-        new java.text.DecimalFormat("0.00").format(1.742545452562);
+        int counter = 2;
+        float number = 0;
+        float largest = number;
 
-        Scanner scan = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+        System.out.print("Number 1: ");
+        number = input.nextFloat();
 
-        System.out.print("Number 1: ");         double num1 = scan.nextInt();
-
-        if (num1 <= 0){
-
+        if (number <= 0){
             System.out.println("No number entered.");
-
             return;
         }
 
-        System.out.print("Number 2: ");         double num2 = scan.nextInt();
+        while(counter < 10)
+        {
+            System.out.print("Number "+counter);
+            System.out.print(":");
+            number = input.nextFloat();
+            counter++;
 
-        System.out.print("Number 3: ");         double num3 = scan.nextInt();
+            if(number > largest){
+                largest = number;
+            }
 
-        if(num1 > num2 && num1 > num3){
+            if (number == 0){
+                break;
+            }
 
-            System.out.println("The largest number is " + num1);
-
-        } else if (num2 > num1 && num2 > num3) {
-
-            System.out.println("The largest number is " + num2);
-
-        }else System.out.print("The largest number is " + num3);
-
-
-
+        }
+        System.out.println("The largest number is " + largest);
     }
 
 
-    //todo Task 2
+
+
+
+
+
+        //todo Task 2
     public void stairs(){
         // input your solution here
     }
