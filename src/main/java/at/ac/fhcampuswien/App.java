@@ -1,16 +1,17 @@
 package at.ac.fhcampuswien;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
 
     //todo Task 1
     public void largestNumber() {
-
         int counter = 2;
         float number = 0;
         float largest = number;
 
+        Locale.setDefault(Locale.ENGLISH);
         Scanner input = new Scanner(System.in);
         System.out.print("Number 1: ");
         number = input.nextFloat();
@@ -20,10 +21,10 @@ public class App {
             return;
         }
 
-        while(counter < 10)
+        while(counter > 0)
         {
             System.out.print("Number "+counter);
-            System.out.print(":");
+            System.out.print(": ");
             number = input.nextFloat();
             counter++;
 
@@ -36,23 +37,55 @@ public class App {
             }
 
         }
-        System.out.println("The largest number is " + largest);
+        System.out.print("The largest number is ");
+        System.out.format("%.2f", largest);
     }
-
-
-
-
 
 
 
         //todo Task 2
-    public void stairs(){
-        // input your solution here
+    public void stairs(){                                                                                               //https://www.geeksforgeeks.org/java-program-to-display-floyds-triangle/
+
+        int number;
+        Scanner input = new Scanner(System.in);
+        System.out.print("n: ");
+        number = input.nextInt();
+        int p =1;
+
+        if(number <= 0){
+            System.out.println("Invalid number!");
+            return;
+        }
+        for(int i = 0; i < number; i++)
+        {
+            for(int j = 0; j < number; j++)
+            {
+                if(i >= j)
+                {
+                    System.out.print(p+++" ");
+                }
+            }
+            System.out.println();
+        }
     }
 
     //todo Task 3
-    public void printPyramid(){
-        // input your solution here
+    public void printPyramid(){                                                                                         // https://www.programiz.com/java-programming/examples/pyramid-pattern
+
+        int rows = 6, k = 0;
+
+        for (int i = 1; i <= rows; ++i, k = 0) {
+            for (int space = 1; space <= rows - i; ++space) {
+                System.out.print(" ");
+            }
+
+            while (k != 2 * i - 1) {
+                System.out.print("*");
+                ++k;
+            }
+
+            System.out.println();
+        }
     }
 
     //todo Task 4
