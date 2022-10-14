@@ -7,29 +7,34 @@ public class App {
 
     //todo Task 1
     public void largestNumber() {
-        int counter = 2;
-        float number = 0;
-        float largest = number;
+        int counter = 1;
+        double number = 0;
+        double largest = number;
+        double number1;
 
         Locale.setDefault(Locale.ENGLISH);
         Scanner input = new Scanner(System.in);
         System.out.print("Number 1: ");
-        number = input.nextFloat();
+        number1 = input.nextDouble();
 
-        if (number <= 0){
+
+        if (number1 <= 0){
             System.out.println("No number entered.");
             return;
         }
 
         while(counter > 0)
         {
+            counter++;
             System.out.print("Number "+counter);
             System.out.print(": ");
             number = input.nextFloat();
-            counter++;
 
-            if(number > largest){
+
+            if(number > largest ){
                 largest = number;
+            } else if (number1 > largest) {
+                largest = number1;
             }
 
             if (number == 0){
@@ -38,7 +43,8 @@ public class App {
 
         }
         System.out.print("The largest number is ");
-        System.out.format("%.2f", largest);
+        System.out.printf("%.2f", largest);
+        System.out.println();
     }
 
 
@@ -90,13 +96,103 @@ public class App {
 
     //todo Task 4
     public void printRhombus(){
-        // input your solution here
-    }
 
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("h: ");
+        int h = sc.nextInt();
+        System.out.print("c: ");
+        char c = sc.next().charAt(0);
+
+        if(h % 2 == 0){
+            System.out.print("Invalid number!");
+            System.out.println();
+            return;
+        }else{
+
+            for(int i = 1; i < h/2+1 ;i++){
+                for(int j = i; j<=h/2+1;j++){
+                    System.out.print(" ");
+                }
+                for(int k = i; k > 0; k--){
+                   char x = ((char) (c-k+1));
+                    System.out.print(x);
+                }
+                for(int l = 1; l < i; l++){
+                    char y = ((char) (c-l));
+                    System.out.print(y);
+                }
+                System.out.println();
+            }
+
+            for(int i = 1; i < h/2 ; i++){
+                for(int j = 1; j <= i; j++){
+                    System.out.print(" ");
+                }
+                for (int k = i; k < h/2 ; k++){
+                    char x = ((char) (c-k+1));
+                    System.out.print(x);
+                }
+                for(int l = i; l <= h/2 ; l++){
+                    char y = ((char) (c-l));
+                    System.out.print(y);
+                }
+                System.out.println();
+            }
+
+        }
+
+
+    }
     //todo Task 5
     public void marks(){
-        // input your solution here
-    }
+
+       int sum = 0;
+       int counter = 1;
+       int mark;
+       int negmark = 0;
+       float average = 0;
+       int mark1;
+       int averagemark = 0;
+       Scanner input = new Scanner(System.in);
+       System.out.print("Mark 1: ");
+       mark1 = input.nextInt();
+
+       while(counter > 0){
+           counter++;
+           System.out.print("Mark " +counter);
+           System.out.print(": ");
+           mark = input.nextInt();
+
+
+
+           if(mark > 0 && mark < 5){
+               sum = sum + mark + mark1;
+
+               averagemark++;
+
+           }
+
+           if(mark < 0 || mark > 5){
+               System.out.println("Invalid mark!");
+           }
+
+           if (mark == 5 || mark1 == 5){
+               negmark++;
+           }
+
+           if(mark == 0){
+               break;
+           }
+
+           average = sum / averagemark;
+
+       }
+
+       System.out.println("Average: "+average);
+       System.out.println("Negative Marks: "+negmark);
+       }
+
 
     //todo Task 6
     public void happyNumbers(){
