@@ -150,7 +150,7 @@ public class App {
        int sum = 0;
        int counter = 1;
        int mark;
-       int negmark = 0;
+       float negmark = 0;
        float average = 0;
        int mark1;
        int averagemark = 0;
@@ -195,8 +195,37 @@ public class App {
 
 
     //todo Task 6
-    public void happyNumbers(){
-        // input your solution here
+    public int happyNumbers(){
+
+               /*The following 13 lines of Code have been taken from the Internet | URL, last visit: dd.mm.yyyy
+                *  https://www.w3resource.com/java-exercises/numbers/java-number-exercise-10.php#:~:text=Java%20Numbers%3A%20Exercise%2D10%20with%20Solution&text=Happy%20number%3A%20Starting%20with%20any,number%20that%20is%20not%20happy.
+                *14.10.2022 */
+
+
+                Scanner scan = new Scanner(System.in);
+                System.out.print("n: ");
+                int number = scan.nextInt();
+                int happy = number,
+                sum = 0;
+
+
+                while (sum != number) {
+                    sum = 0;
+                    while (happy != 0) {
+                        int dig = happy%10;
+                        sum += dig*dig;
+                        happy /= 10;
+                    }
+                    if (sum == number) {
+                        System.out.println("Sad number!");
+                    }
+                    if (sum == 1) {
+                        System.out.println("Happy number!");
+                        break;
+                    }
+                    happy = sum;
+                }
+        return number;
     }
 
     public static void main(String[] args){
